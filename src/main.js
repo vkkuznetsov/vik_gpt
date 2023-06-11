@@ -21,6 +21,9 @@ bot.command('start', async (ctx) =>{
     ctx.session = INITIAL_SESSION
     await ctx.reply("Отправьте мне голосовое или текстовое сообщение")
 })
+bot.command('test_message', async (ctx) => {
+    await ctx.reply(JSON.stringify(ctx.message, null, 2))
+})
 
 bot.on(message('text') , async ctx =>{
     ctx.session ??= INITIAL_SESSION
@@ -69,9 +72,7 @@ bot.on(message('voice') , async ctx =>{
 })
 
 
-bot.command('test_message', async (ctx) => {
-    await ctx.reply(JSON.stringify(ctx.message, null, 2))
-})
+
 
 
 bot.launch()
